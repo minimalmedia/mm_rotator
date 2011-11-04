@@ -1,12 +1,22 @@
 <?php
 
 /**
+ * Implementation of hook_ctools_plugin_api().
+ */
+function mm_rotator_ctools_plugin_api() {
+  list($module, $api) = func_get_args();
+  if ($module == "strongarm" && $api == "strongarm") {
+    return array("version" => 1);
+  }
+}
+
+/**
  * Implementation of hook_imagecache_default_presets().
  */
 function mm_rotator_imagecache_default_presets() {
   $items = array(
-    'mm_rotator' => array(
-      'presetname' => 'mm_rotator',
+    'mm_rotator_700x400' => array(
+      'presetname' => 'mm_rotator_700x400',
       'actions' => array(
         '0' => array(
           'weight' => '0',
@@ -14,6 +24,20 @@ function mm_rotator_imagecache_default_presets() {
           'action' => 'imagecache_scale_and_crop',
           'data' => array(
             'width' => '700',
+            'height' => '400',
+          ),
+        ),
+      ),
+    ),
+    'mm_rotator_960x400' => array(
+      'presetname' => 'mm_rotator_960x400',
+      'actions' => array(
+        '0' => array(
+          'weight' => '0',
+          'module' => 'imagecache',
+          'action' => 'imagecache_scale_and_crop',
+          'data' => array(
+            'width' => '960',
             'height' => '400',
           ),
         ),

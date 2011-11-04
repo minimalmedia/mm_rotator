@@ -126,6 +126,11 @@ function mm_rotator_content_default_fields() {
       'title_type' => 'textfield',
       'default_image' => NULL,
       'use_default_image' => 0,
+      'filefield_sources' => NULL,
+      'filefield_source_attach_path' => NULL,
+      'filefield_source_attach_absolute' => NULL,
+      'filefield_source_attach_mode' => NULL,
+      'filefield_source_autocomplete' => NULL,
       'label' => 'Image',
       'weight' => '-3',
       'description' => '',
@@ -205,11 +210,10 @@ function mm_rotator_content_default_fields() {
   );
 
   // Translatables
-  array(
-    t('Description'),
-    t('Image'),
-    t('Link'),
-  );
+  // Included for use with string extractors like potx.
+  t('Description');
+  t('Image');
+  t('Link');
 
   return $fields;
 }
