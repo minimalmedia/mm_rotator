@@ -5,3 +5,12 @@
  */
 
 include_once('mm_rotator.features.inc');
+
+/**
+ * Implementation of hook_init().
+ */
+function mm_rotator_init() {
+  $path = drupal_get_path('module', 'mm_rotator');
+  drupal_add_css($path .'/mm_rotator.css', 'module', 'all', FALSE);
+}
+
