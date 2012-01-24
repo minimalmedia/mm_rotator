@@ -1,77 +1,95 @@
 <?php
+/**
+ * @file
+ * mm_rotator.features.inc
+ */
 
 /**
- * Implementation of hook_ctools_plugin_api().
+ * Implements hook_ctools_plugin_api().
  */
 function mm_rotator_ctools_plugin_api() {
   list($module, $api) = func_get_args();
   if ($module == "strongarm" && $api == "strongarm") {
-    return array("version" => 1);
+    return array("version" => "1");
   }
 }
 
 /**
- * Implementation of hook_imagecache_default_presets().
+ * Implements hook_views_api().
  */
-function mm_rotator_imagecache_default_presets() {
-  $items = array(
-    'mm_rotator_700x400' => array(
-      'presetname' => 'mm_rotator_700x400',
-      'actions' => array(
-        '0' => array(
-          'weight' => '0',
-          'module' => 'imagecache',
-          'action' => 'imagecache_scale_and_crop',
-          'data' => array(
-            'width' => '700',
-            'height' => '400',
-          ),
-        ),
-      ),
-    ),
-    'mm_rotator_960x400' => array(
-      'presetname' => 'mm_rotator_960x400',
-      'actions' => array(
-        '0' => array(
-          'weight' => '0',
-          'module' => 'imagecache',
-          'action' => 'imagecache_scale_and_crop',
-          'data' => array(
-            'width' => '960',
-            'height' => '400',
-          ),
-        ),
-      ),
-    ),
-  );
-  return $items;
+function mm_rotator_views_api() {
+  list($module, $api) = func_get_args();
+  if ($module == "views" && $api == "views_default") {
+    return array("version" => "3.0");
+  }
 }
 
 /**
- * Implementation of hook_node_info().
+ * Implements hook_image_default_styles().
+ */
+function mm_rotator_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: rotator_700x400
+  $styles['rotator_700x400'] = array(
+    'name' => 'rotator_700x400',
+    'effects' => array(
+      1 => array(
+        'label' => 'Scale and crop',
+        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => '700',
+          'height' => '400',
+        ),
+        'weight' => '1',
+      ),
+    ),
+  );
+
+  // Exported image style: rotator_960x400
+  $styles['rotator_960x400'] = array(
+    'name' => 'rotator_960x400',
+    'effects' => array(
+      2 => array(
+        'label' => 'Scale and crop',
+        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => '960',
+          'height' => '400',
+        ),
+        'weight' => '1',
+      ),
+    ),
+  );
+
+  return $styles;
+}
+
+/**
+ * Implements hook_node_info().
  */
 function mm_rotator_node_info() {
   $items = array(
     'rotator_item' => array(
       'name' => t('Rotator Item'),
-      'module' => 'features',
+      'base' => 'node_content',
       'description' => t('An item that goes into the rotator.'),
       'has_title' => '1',
       'title_label' => t('Title'),
-      'has_body' => '0',
-      'body_label' => '',
-      'min_word_count' => '0',
       'help' => '',
     ),
   );
   return $items;
-}
-
-/**
- * Implementation of hook_views_api().
- */
-function mm_rotator_views_api() {
-  return array(
-    'api' => '2',
-  );
 }
