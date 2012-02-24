@@ -13,6 +13,11 @@
   width: 1000px;
 }
 
+.rotator-1200x595,
+.rotator-1200x595 .rotator-transparency {
+  width: 1200px;
+}
+
 .view-rotator .views_slideshow_singleframe_slide {
   height: 400px;
   position: relative;
