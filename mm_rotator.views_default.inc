@@ -295,7 +295,7 @@ function mm_rotator_views_default_views() {
   $handler->display->display_options['fields']['body']['alter']['text'] = '<div class="rotator-transparency"></div>
 <div class="rotator-content">
 <h2><a href="[field_rotator_link]">[title]</a></h2>
-[body-value]
+<p>[body-value]</p>
 </div>
 ';
   $handler->display->display_options['fields']['body']['alter']['make_link'] = 0;
@@ -306,6 +306,7 @@ function mm_rotator_views_default_views() {
   $handler->display->display_options['fields']['body']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['body']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['body']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['body']['alter']['more_link'] = 0;
   $handler->display->display_options['fields']['body']['alter']['strip_tags'] = 0;
   $handler->display->display_options['fields']['body']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['body']['alter']['html'] = 0;
@@ -408,7 +409,7 @@ function mm_rotator_views_default_views() {
   $handler->display->display_options['fields']['body']['alter']['text'] = '<div class="rotator-transparency"></div>
 <div class="rotator-content">
 <h2><a href="[field_rotator_link]">[title]</a></h2>
-[body-value]
+<p>[body-value]</p>
 </div>
 ';
   $handler->display->display_options['fields']['body']['alter']['make_link'] = 0;
@@ -419,6 +420,7 @@ function mm_rotator_views_default_views() {
   $handler->display->display_options['fields']['body']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['body']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['body']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['body']['alter']['more_link'] = 0;
   $handler->display->display_options['fields']['body']['alter']['strip_tags'] = 0;
   $handler->display->display_options['fields']['body']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['body']['alter']['html'] = 0;
@@ -521,7 +523,7 @@ function mm_rotator_views_default_views() {
   $handler->display->display_options['fields']['body']['alter']['text'] = '<div class="rotator-transparency"></div>
 <div class="rotator-content">
 <h2><a href="[field_rotator_link]">[title]</a></h2>
-[body-value]
+<p>[body-value]</p>
 </div>
 ';
   $handler->display->display_options['fields']['body']['alter']['make_link'] = 0;
@@ -532,6 +534,7 @@ function mm_rotator_views_default_views() {
   $handler->display->display_options['fields']['body']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['body']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['body']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['body']['alter']['more_link'] = 0;
   $handler->display->display_options['fields']['body']['alter']['strip_tags'] = 0;
   $handler->display->display_options['fields']['body']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['body']['alter']['html'] = 0;
@@ -634,7 +637,7 @@ function mm_rotator_views_default_views() {
   $handler->display->display_options['fields']['body']['alter']['text'] = '<div class="rotator-transparency"></div>
 <div class="rotator-content">
 <h2><a href="[field_rotator_link]">[title]</a></h2>
-[body-value]
+<p>[body-value]</p>
 </div>
 ';
   $handler->display->display_options['fields']['body']['alter']['make_link'] = 0;
@@ -645,6 +648,7 @@ function mm_rotator_views_default_views() {
   $handler->display->display_options['fields']['body']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['body']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['body']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['body']['alter']['more_link'] = 0;
   $handler->display->display_options['fields']['body']['alter']['strip_tags'] = 0;
   $handler->display->display_options['fields']['body']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['body']['alter']['html'] = 0;
